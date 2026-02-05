@@ -1,0 +1,26 @@
+import java.io.*;
+import java.util.*;
+
+class UserMainCode
+{
+    public String EvenOddDigitsSum(int input1, String input2)
+    {
+        String period = input2.substring(8);
+        int hour = Integer.parseInt(input2.substring(0, 2));
+        String rest = input2.substring(2, 8);
+
+        if (period.equals("AM")) {
+            if (hour == 12) hour = 0;
+        } else {
+            if (hour != 12) hour += 12;
+        }
+
+        return String.format("%02d%s", hour, rest);
+    }
+
+    // ONLY for local testing
+    public static void main(String[] args) {
+        UserMainCode obj = new UserMainCode();
+        System.out.println(obj.EvenOddDigitsSum(0, "07:05:45PM"));
+    }
+}
